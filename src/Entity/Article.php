@@ -24,6 +24,9 @@ class Article
     #[ORM\Column(type: 'json_document', options: ['jsonb' => true])]
     private array $articleBody = [];
 
+    #[ORM\Column(length: 255)]
+    private ?string $ArticleID = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class Article
     public function setArticleBody(?array $articleBody): self
     {
         $this->articleBody = $articleBody;
+
+        return $this;
+    }
+
+    public function getArticleID(): ?string
+    {
+        return $this->ArticleID;
+    }
+
+    public function setArticleID(string $ArticleID): self
+    {
+        $this->ArticleID = $ArticleID;
 
         return $this;
     }
