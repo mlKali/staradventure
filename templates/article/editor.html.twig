@@ -1,7 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+    
+<form action="{{ path(viewName, {'articleName': articleName, 'page': articlePage})}}" method="post">
+    {{ form_widget(form) }}
 
-    {{ form(form) }}
+    <input type="submit" />
+</form>
 
 {% endblock %}
